@@ -27,8 +27,8 @@ sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 
 sed -i 's|ca ca.crt|ca /etc/openvpn/easy-rsa/3.0.3/keys/ca.crt|' server.conf
 sed -i 's|cert server.crt|cert /etc/openvpn/easy-rsa/3.0.3/keys/server.crt|' server.conf
 sed -i 's|key server.key|key /etc/openvpn/easy-rsa/3.0.3/keys/server.key|' server.conf
-sed -i 's|;push "dhcp-option DNS 8.8.8.8"|' server.conf
-sed -i 's|;push "dhcp-option DNS 8.8.4.4"|' server.conf
+sed -i 's|push "dhcp-option DNS 8.8.8.8"|' server.conf
+sed -i 's|push "dhcp-option DNS 8.8.4.4"|' server.conf
 sed -i 's|net.ipv4.ip_forward = 0|net.ipv4.ip_forward = 1|' /etc/sysctl.conf
 sysctl -p
 echo 1 > /proc/sys/net/ipv4/ip_forward

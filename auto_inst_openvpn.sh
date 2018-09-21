@@ -2,8 +2,8 @@
 
 ##yum install openvpn easy-rsa -y
 mkdir -p /etc/openvpn/easy-rsa/keys
-cp -R /usr/share/easy-rsa/3.0.3/ /etc/openvpn/easy-rsa/
-cp /root/vpn/vars / /etc/openvpn/easy-rsa/vars
+cp -R /usr/share/easy-rsa/3.0.3/* /etc/openvpn/easy-rsa/
+cp /root/vpn/vars /etc/openvpn/easy-rsa/vars
 chmod 0755 *
 exec `cd /etc/openvpn/easy-rsa/3.0.3/`
 source ./vars

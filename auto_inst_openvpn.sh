@@ -3,17 +3,18 @@
 ##yum install openvpn easy-rsa -y
 mkdir -p /etc/openvpn/easy-rsa/keys
 cp -R /usr/share/easy-rsa/3.0.3/ /etc/openvpn/easy-rsa/
-cd /etc/openvpn/easy-rsa/3.0.3/
 cp /home/root/vpn/vars / /etc/openvpn/easy-rsa/vars
 chmod 0755 *
+cd /etc/openvpn/easy-rsa/3.0.3/
 source ./vars
-./clean-all
+
+#./clean-all
 
 #Run 1 line at time.
-./build-ca # In common name should be name [b]server[/b]
-./build-key-server server 
-./build-key ardupilot #Create Client
-./build-dh
+#./build-ca # In common name should be name [b]server[/b]
+#./build-key-server server 
+#./build-key ardupilot #Create Client
+#./build-dh
 
 # Set the server configuration
 

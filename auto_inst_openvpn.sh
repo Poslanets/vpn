@@ -3,9 +3,9 @@
 ##yum install openvpn easy-rsa -y
 mkdir -p /etc/openvpn/easy-rsa/keys
 cp -R /usr/share/easy-rsa/3.0.3/ /etc/openvpn/easy-rsa/
-cp /home/root/vpn/vars / /etc/openvpn/easy-rsa/vars
+cp /root/vpn/vars / /etc/openvpn/easy-rsa/vars
 chmod 0755 *
-cd /etc/openvpn/easy-rsa/3.0.3/
+exec `cd /etc/openvpn/easy-rsa/3.0.3/`
 source ./vars
 
 #./clean-all
@@ -17,21 +17,20 @@ source ./vars
 #./build-dh
 
 # Set the server configuration
-
-#cp /usr/share/doc/openvpn-2.4.6/sample/sample-config-files/server.conf /etc/openvpn/
-#cd /etc/openvpn/
-#sed -i 's|;duplicate-cn|duplicate-cn|' server.conf
-#sed -i 's|;log         openvpn.log|log         openvpn.log|' server.conf
-#sed -i 's|;user nobody|user nobody|' server.conf
-#sed -i 's|;group nobody|group nobody|' server.conf
-#sed -i 's|dh dh1024.pem|dh /etc/openvpn/easy-rsa/3.0.3/keys/dh2048.pem|' server.conf
-#sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 bypass-dhcp"|' server.conf
-#sed -i 's|ca ca.crt|ca /etc/openvpn/easy-rsa/3.0.3/keys/ca.crt|' server.conf
-#sed -i 's|cert server.crt|cert /etc/openvpn/easy-rsa/3.0.3/keys/server.crt|' server.conf
-#sed -i 's|key server.key|key /etc/openvpn/easy-rsa/3.0.3/keys/server.key|' server.conf
-#sed -i 's|push "dhcp-option DNS 8.8.8.8"|' server.conf
-#sed -i 's|push "dhcp-option DNS 8.8.4.4"|' server.conf
-#sed -i 's|net.ipv4.ip_forward = 0|net.ipv4.ip_forward = 1|' /etc/sysctl.conf
+cp /usr/share/doc/openvpn-2.4.6/sample/sample-config-files/server.conf /etc/openvpn/
+cd /etc/openvpn/
+sed -i 's|;duplicate-cn|duplicate-cn|' server.conf
+sed -i 's|;log         openvpn.log|log         openvpn.log|' server.conf
+sed -i 's|;user nobody|user nobody|' server.conf
+sed -i 's|;group nobody|group nobody|' server.conf
+sed -i 's|dh dh1024.pem|dh /etc/openvpn/easy-rsa/3.0.3/keys/dh2048.pem|' server.conf
+sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 bypass-dhcp"|' server.conf
+sed -i 's|ca ca.crt|ca /etc/openvpn/easy-rsa/3.0.3/keys/ca.crt|' server.conf
+sed -i 's|cert server.crt|cert /etc/openvpn/easy-rsa/3.0.3/keys/server.crt|' server.conf
+sed -i 's|key server.key|key /etc/openvpn/easy-rsa/3.0.3/keys/server.key|' server.conf
+sed -i 's|;push "dhcp-option DNS 208.67.222.222"|push "dhcp-option DNS 8.8.8.8"|' server.conf
+sed -i 's|;push "dhcp-option DNS 208.67.220.220"|push "dhcp-option DNS 208.67.222.222"|' server.conf
+sed -i 's|net.ipv4.ip_forward = 0|net.ipv4.ip_forward = 1|' /etc/sysctl.conf
 #sysctl -p
 #echo 1 > /proc/sys/net/ipv4/ip_forward
 #iptables -v -F

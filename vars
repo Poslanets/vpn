@@ -1,0 +1,8 @@
+export KEY_COUNTRY="UA" 
+export KEY_PROVINCE="DP" 
+export KEY_CITY="Dnipro" 
+export KEY_ORG="Simple user" 
+export KEY_EMAIL="info@itrack.com.ua"
+export KEY_OU="aerotech"
+# X509 Subject Field
+export KEY_NAME=»EasyRSA» 

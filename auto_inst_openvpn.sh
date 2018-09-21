@@ -4,9 +4,9 @@
 mkdir -p /etc/openvpn/easy-rsa/keys
 cp -R /usr/share/easy-rsa/3.0.3/ /etc/openvpn/easy-rsa/
 cd /etc/openvpn/easy-rsa/3.0.3/
-sed -i 's|export KEY_CONFIG=`$EASY_RSA/whichopensslcnf $EASY_RSA`|export KEY_CONFIG=/etc/openvpn/easy-rsa/3.0.3/openssl-1.0.cnf|' vars
+cp /home/root/vpn/vars / /etc/openvpn/easy-rsa/vars
 chmod 0755 *
-. ./vars
+source ./vars
 ./clean-all
 
 #Run 1 line at time.

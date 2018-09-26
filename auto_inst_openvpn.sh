@@ -70,8 +70,8 @@ mkdir -p /etc/openvpn/easy-rsa/client_keys
 ./easyrsa gen-req client1 nopass
 ./easyrsa sign-req client client1
 
-cp /etc/openvpn/easy-rsa/keys/issued/client1.crt /etc/openvpn/easy-rsa/client_keys/
-cp /etc/openvpn/easy-rsa/keys/private/client1.key /etc/openvpn/easy-rsa/client_keys/
+mv /etc/openvpn/easy-rsa/pki/issued/client1.crt /etc/openvpn/easy-rsa/client_keys/
+mv /etc/openvpn/easy-rsa/pki/private/client1.key /etc/openvpn/easy-rsa/client_keys/
 cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client_keys/
 cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client_keys/
 cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client_keys/

@@ -67,8 +67,11 @@ service openvpn start
 #=====================
 cd /etc/openvpn/easy-rsa/
 mkdir -p /etc/openvpn/easy-rsa/client_keys
-./easyrsa gen-req /etc/openvpn/easy-rsa/client_keys/client1 nopass
-./easyrsa sign-req client /etc/openvpn/easy-rsa/client_keys/client1
+./easyrsa gen-req client1 nopass
+./easyrsa sign-req client client1
+
+cp /etc/openvpn/easy-rsa/keys/issued/client1.crt /etc/openvpn/easy-rsa/client_keys/
+cp /etc/openvpn/easy-rsa/keys/private/client1.key /etc/openvpn/easy-rsa/client_keys/
 cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client_keys/
 cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client_keys/
 cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client_keys/

@@ -16,7 +16,7 @@ cd /etc/openvpn/easy-rsa/
 ./easyrsa gen-req vpn-server nopass
 ./easyrsa sign-req server vpn-server
 openvpn --genkey --secret /etc/openvpn/easy-rsa/keys/ta.key
-cp ./pki/* ./keys/
+cp -R ./pki/* ./keys/
 sync
 #Run 1 line at time.
 #./build-ca # In common name should be name [b]server[/b]
@@ -31,9 +31,10 @@ sed -i 's|;duplicate-cn|duplicate-cn|' server.conf
 sed -i 's|;log         openvpn.log|log         openvpn.log|' server.conf
 sed -i 's|;user nobody|user nobody|' server.conf
 sed -i 's|;group nobody|group nobody|' server.conf
-sed -i 's|dh dh1024.pem|dh /etc/openvpn/easy-rsa/keys/dh.pem|' server.conf
+sed -i 's|dh dh2048.pem|dh /etc/openvpn/easy-rsa/keys/dh.pem|' server.conf
 sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 bypass-dhcp"|' server.conf
 sed -i 's|ca ca.crt|ca /etc/openvpn/easy-rsa/keys/ca.crt|' server.conf
+sed -i 's|tls-auth ta.key|tls-auth /etc/openvpn/easy-rsa/keys/ta.key|' server.conf
 sed -i 's|cert server.crt|cert /etc/openvpn/easy-rsa/keys/issued/vpn-server.crt|' server.conf
 sed -i 's|key server.key|key /etc/openvpn/easy-rsa/keys/private/vpn-server.key|' server.conf
 sed -i 's|;push "dhcp-option DNS 208.67.222.222"|push "dhcp-option DNS 8.8.8.8"|' server.conf

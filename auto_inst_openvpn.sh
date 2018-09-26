@@ -1,7 +1,17 @@
 #Setup OpenVPN auto
 
+#echo "Adding the EPEL repository"
+#yum install wget -y
+#wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+#rpm -Uvh epel-*
+#rm epel-release-6-8.noarch.rpm -f
 
-##yum install openvpn easy-rsa -y
+# Update the OS
+#echo "Updating the system"
+#yum update -y
+
+#echo "Installing openvpn"
+#yum install openvpn easy-rsa openssl -y
 
 mkdir -p /etc/openvpn/easy-rsa/keys
 cp -R /usr/share/easy-rsa/3.0.3/* /etc/openvpn/easy-rsa/
@@ -55,6 +65,7 @@ chkconfig openvpn on
 service openvpn start
 
 #=====================
+cd /etc/openvpn/easy-rsa/
 mkdir -p /etc/openvpn/easy-rsa/client_keys
 ./easyrsa gen-req /etc/openvpn/easy-rsa/client_keys/client1 nopass
 ./easyrsa sign-req client /etc/openvpn/easy-rsa/client_keys/client1

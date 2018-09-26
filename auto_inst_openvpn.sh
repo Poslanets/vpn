@@ -15,7 +15,7 @@ cd /etc/openvpn/easy-rsa/
 ./easyrsa gen-dh
 ./easyrsa gen-req vpn-server nopass
 ./easyrsa sign-req server vpn-server
-openvpn --genkey --secret /etc/openvpn/keys/ta.key
+openvpn --genkey --secret /etc/openvpn/easy-rsa/keys/ta.key
 cp ./pki/* ./keys/
 sync
 #Run 1 line at time.

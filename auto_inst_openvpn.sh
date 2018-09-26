@@ -15,6 +15,8 @@ cd /etc/openvpn/easy-rsa/
 ./easyrsa gen-dh
 ./easyrsa gen-req vpn-server nopass
 ./easyrsa sign-req server vpn-server
+cp ./pki/* ./keys/
+sync
 #Run 1 line at time.
 #./build-ca # In common name should be name [b]server[/b]
 #./build-key-server server 

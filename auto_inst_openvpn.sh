@@ -29,11 +29,6 @@ cd /etc/openvpn/easy-rsa/
 openvpn --genkey --secret /etc/openvpn/easy-rsa/keys/ta.key
 cp -R ./pki/* ./keys/
 sync
-#Run 1 line at time.
-#./build-ca # In common name should be name [b]server[/b]
-#./build-key-server server 
-#./build-key ardupilot #Create Client
-#./build-dh
 
 # Set the server configuration
 cp /usr/share/doc/openvpn-2.4.6/sample/sample-config-files/server.conf /etc/openvpn/
@@ -75,7 +70,7 @@ mv /etc/openvpn/easy-rsa/pki/private/client1.key /etc/openvpn/easy-rsa/client1_k
 cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client1_keys/
 cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client1_keys/
 cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client1_keys/
-
+sync
 #=====================Client2
 cd /etc/openvpn/easy-rsa/
 mkdir -p /etc/openvpn/easy-rsa/client2_keys
@@ -87,5 +82,5 @@ mv /etc/openvpn/easy-rsa/pki/private/client2.key /etc/openvpn/easy-rsa/client2_k
 cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client2_keys/
 cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client2_keys/
 cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client2_keys/
-
+sync
 

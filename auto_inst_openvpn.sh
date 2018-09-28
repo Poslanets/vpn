@@ -64,15 +64,28 @@ chkconfig --add openvpn
 chkconfig openvpn on
 service openvpn start
 
-#=====================
+#=====================Client1
 cd /etc/openvpn/easy-rsa/
-mkdir -p /etc/openvpn/easy-rsa/client_keys
+mkdir -p /etc/openvpn/easy-rsa/client1_keys
 ./easyrsa gen-req client1 nopass
 ./easyrsa sign-req client client1
 
-mv /etc/openvpn/easy-rsa/pki/issued/client1.crt /etc/openvpn/easy-rsa/client_keys/
-mv /etc/openvpn/easy-rsa/pki/private/client1.key /etc/openvpn/easy-rsa/client_keys/
-cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client_keys/
-cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client_keys/
-cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client_keys/
+mv /etc/openvpn/easy-rsa/pki/issued/client1.crt /etc/openvpn/easy-rsa/client1_keys/
+mv /etc/openvpn/easy-rsa/pki/private/client1.key /etc/openvpn/easy-rsa/client1_keys/
+cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client1_keys/
+cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client1_keys/
+cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client1_keys/
+
+#=====================Client2
+cd /etc/openvpn/easy-rsa/
+mkdir -p /etc/openvpn/easy-rsa/client2_keys
+./easyrsa gen-req client2 nopass
+./easyrsa sign-req client client2
+
+mv /etc/openvpn/easy-rsa/pki/issued/client2.crt /etc/openvpn/easy-rsa/client2_keys/
+mv /etc/openvpn/easy-rsa/pki/private/client2.key /etc/openvpn/easy-rsa/client2_keys/
+cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client2_keys/
+cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client2_keys/
+cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client2_keys/
+
 

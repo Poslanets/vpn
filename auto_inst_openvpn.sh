@@ -36,6 +36,7 @@ cd /etc/openvpn/
 sed -i 's|;duplicate-cn|duplicate-cn|' server.conf
 sed -i 's|;log         openvpn.log|log         openvpn.log|' server.conf
 sed -i 's|;user nobody|user nobody|' server.conf
+sed -i 's|;copm-lzo|copm-lzo||' server.conf
 sed -i 's|;group nobody|group nobody|' server.conf
 sed -i 's|dh dh2048.pem|dh /etc/openvpn/easy-rsa/keys/dh.pem|' server.conf
 sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 bypass-dhcp"|' server.conf
@@ -70,6 +71,7 @@ mv /etc/openvpn/easy-rsa/pki/private/client1.key /etc/openvpn/easy-rsa/client1_k
 cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client1_keys/
 cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client1_keys/
 cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client1_keys/
+touch /etc/openvpn/easy-rsa/client1_keys/cline1.ovpn
 sync
 #=====================Client2
 cd /etc/openvpn/easy-rsa/
@@ -82,5 +84,6 @@ mv /etc/openvpn/easy-rsa/pki/private/client2.key /etc/openvpn/easy-rsa/client2_k
 cp /etc/openvpn/easy-rsa/keys/ta.key /etc/openvpn/easy-rsa/client2_keys/
 cp /etc/openvpn/easy-rsa/keys/dh.pem /etc/openvpn/easy-rsa/client2_keys/
 cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn/easy-rsa/client2_keys/
+touch /etc/openvpn/easy-rsa/client2_keys/cline1.ovpn
 sync
 
